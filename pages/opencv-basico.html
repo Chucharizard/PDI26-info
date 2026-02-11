@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar y Mostrar (OpenCV) | Docs PDI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <aside>
+        <h2>🖼️ Docs PDI</h2>
+        
+        <nav>
+            <div class="nav-group">
+                <h3>🚀 Primeros Pasos</h3>
+                <ul>
+                    <li><a href="../index.html">Instalación y Entorno</a></li>
+                    <li><a href="#">Introducción a Jupyter</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>📖 Teoría</h3>
+                <ul>
+                    <li><a href="teoria-basica.html">Conceptos Básicos</a></li>
+                    <li><a href="#">Espacios de Color</a></li>
+                    <li><a href="filtros-espaciales.html">Filtros Espaciales</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>💻 Prácticas</h3>
+                <ul>
+                    <li><a href="opencv-basico.html" class="active">Cargar y Mostrar (OpenCV)</a></li>
+                    <li><a href="#">Manipulación con Numpy</a></li>
+                    <li><a href="#">Histogramas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Cargar y Mostrar Imágenes</h1>
+            <p class="subtitle">Primeros pasos con OpenCV en Python.</p>
+        </header>
+
+        <section>
+            <h2>Cargar una Imagen</h2>
+            <p>OpenCV hace muy sencilla la carga de imágenes desde disco. La función <code>cv2.imread()</code> lee la imagen y la devuelve como un array de NumPy.</p>
+            <div class="code-container">
+                <pre><code>import cv2
+
+# Cargar imagen en color
+img = cv2.imread('ruta/a/imagen.jpg')
+
+# Cargar imagen en escala de grises
+img_gray = cv2.imread('ruta/a/imagen.jpg', cv2.IMREAD_GRAYSCALE)</code></pre>
+            </div>
+            <p><strong>Nota importante:</strong> OpenCV carga las imágenes en formato BGR (Blue-Green-Red), no RGB como estamos acostumbrados. Tenlo en cuenta al trabajar con otras librerías como Matplotlib.</p>
+        </section>
+
+        <section>
+            <h2>Mostrar una Imagen</h2>
+            <p>Para visualizar una imagen en una ventana, usamos <code>cv2.imshow()</code>:</p>
+            <div class="code-container">
+                <pre><code>import cv2
+
+img = cv2.imread('imagen.jpg')
+
+# Mostrar la imagen
+cv2.imshow('Nombre de la Ventana', img)
+
+# Esperar hasta que se presione una tecla
+cv2.waitKey(0)
+
+# Cerrar todas las ventanas
+cv2.destroyAllWindows()</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Guardar una Imagen</h2>
+            <p>Si has procesado una imagen y quieres guardarla, usa <code>cv2.imwrite()</code>:</p>
+            <div class="code-container">
+                <pre><code>import cv2
+
+img = cv2.imread('original.jpg')
+
+# Realizar algún procesamiento...
+img_procesada = cv2.GaussianBlur(img, (15, 15), 0)
+
+# Guardar la imagen procesada
+cv2.imwrite('resultado.jpg', img_procesada)</code></pre>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

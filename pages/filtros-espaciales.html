@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtros Espaciales | Docs PDI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <aside>
+        <h2>🖼️ Docs PDI</h2>
+        
+        <nav>
+            <div class="nav-group">
+                <h3>🚀 Primeros Pasos</h3>
+                <ul>
+                    <li><a href="../index.html">Instalación y Entorno</a></li>
+                    <li><a href="#">Introducción a Jupyter</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>📖 Teoría</h3>
+                <ul>
+                    <li><a href="teoria-basica.html">Conceptos Básicos</a></li>
+                    <li><a href="#">Espacios de Color</a></li>
+                    <li><a href="filtros-espaciales.html" class="active">Filtros Espaciales</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>💻 Prácticas</h3>
+                <ul>
+                    <li><a href="opencv-basico.html">Cargar y Mostrar (OpenCV)</a></li>
+                    <li><a href="#">Manipulación con Numpy</a></li>
+                    <li><a href="#">Histogramas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Filtros Espaciales</h1>
+            <p class="subtitle">Convolución y operaciones locales sobre imágenes.</p>
+        </header>
+
+        <section>
+            <h2>¿Qué es un Filtro Espacial?</h2>
+            <p>Un <strong>filtro espacial</strong> es una operación que se aplica a cada píxel de una imagen considerando sus vecinos. Esta técnica se basa en la <strong>convolución</strong>, donde multiplicamos una matriz pequeña (kernel) con la región correspondiente de la imagen.</p>
+            <p>Los filtros espaciales se usan para suavizar, realzar bordes, eliminar ruido, y muchas otras operaciones fundamentales en PDI.</p>
+        </section>
+
+        <section>
+            <h2>Tipos Comunes de Filtros</h2>
+            <p><strong>Filtro de Suavizado (Blur):</strong> Reduce el ruido y los detalles finos. Ejemplos: filtro promedio, filtro gaussiano.</p>
+            <p><strong>Filtro de Realce de Bordes:</strong> Acentúa las transiciones bruscas de intensidad. Ejemplos: Sobel, Laplaciano, Canny.</p>
+            <p><strong>Filtro de Mediana:</strong> Excelente para eliminar ruido de tipo "sal y pimienta" sin difuminar tanto los bordes.</p>
+        </section>
+
+        <section>
+            <h2>Ejemplo: Filtro Gaussiano en OpenCV</h2>
+            <p>El filtro gaussiano es uno de los más utilizados para suavizar imágenes:</p>
+            <div class="code-container">
+                <pre><code>import cv2
+
+# Cargar imagen
+img = cv2.imread('imagen.jpg')
+
+# Aplicar filtro gaussiano (kernel 5x5, sigma=0 automático)
+img_blur = cv2.GaussianBlur(img, (5, 5), 0)
+
+# Mostrar resultado
+cv2.imshow('Original', img)
+cv2.imshow('Blur', img_blur)
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code></pre>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

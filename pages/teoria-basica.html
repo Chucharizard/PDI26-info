@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptos Básicos | Docs PDI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <aside>
+        <h2>🖼️ Docs PDI</h2>
+        
+        <nav>
+            <div class="nav-group">
+                <h3>🚀 Primeros Pasos</h3>
+                <ul>
+                    <li><a href="../index.html">Instalación y Entorno</a></li>
+                    <li><a href="#">Introducción a Jupyter</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>📖 Teoría</h3>
+                <ul>
+                    <li><a href="teoria-basica.html" class="active">Conceptos Básicos</a></li>
+                    <li><a href="#">Espacios de Color</a></li>
+                    <li><a href="filtros-espaciales.html">Filtros Espaciales</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>💻 Prácticas</h3>
+                <ul>
+                    <li><a href="opencv-basico.html">Cargar y Mostrar (OpenCV)</a></li>
+                    <li><a href="#">Manipulación con Numpy</a></li>
+                    <li><a href="#">Histogramas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Conceptos Básicos</h1>
+            <p class="subtitle">Fundamentos de procesamiento digital de imágenes.</p>
+        </header>
+
+        <section>
+            <h2>¿Qué es una Imagen Digital?</h2>
+            <p>Una imagen digital es una representación bidimensional de una imagen mediante una matriz de números. Cada elemento de esta matriz se denomina <strong>píxel</strong> (picture element), y representa el valor de intensidad o color en esa posición específica.</p>
+            <p>En imágenes en escala de grises, cada píxel tiene un valor entre 0 (negro) y 255 (blanco). En imágenes de color, típicamente se usan tres canales (RGB) con valores en el mismo rango.</p>
+        </section>
+
+        <section>
+            <h2>Resolución y Dimensiones</h2>
+            <p>La <strong>resolución</strong> de una imagen se refiere al número de píxeles que contiene, expresado generalmente como <code>ancho × alto</code>. Por ejemplo, una imagen de 1920×1080 píxeles tiene aproximadamente 2 millones de píxeles.</p>
+            <p>Una mayor resolución generalmente significa mayor detalle, pero también mayor tamaño del archivo y mayor costo computacional para procesarla.</p>
+        </section>
+
+        <section>
+            <h2>Representación en Python</h2>
+            <p>En Python, usando <strong>NumPy</strong>, las imágenes se representan como arrays multidimensionales:</p>
+            <div class="code-container">
+                <pre><code>import numpy as np
+import cv2
+
+# Cargar una imagen
+img = cv2.imread('imagen.jpg')
+
+# Ver dimensiones (alto, ancho, canales)
+print(img.shape)  # Ej: (480, 640, 3)
+
+# Acceder a un píxel específico
+pixel = img[100, 200]  # [B, G, R]</code></pre>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

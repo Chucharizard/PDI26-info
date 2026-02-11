@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docs | Procesamiento Digital de Imágenes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <aside>
+        <h2>🖼️ Docs PDI</h2>
+        
+        <nav>
+            <div class="nav-group">
+                <h3>🚀 Primeros Pasos</h3>
+                <ul>
+                    <li><a href="index.html" class="active">Instalación y Entorno</a></li>
+                    <li><a href="#">Introducción a Jupyter</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>📖 Teoría</h3>
+                <ul>
+                    <li><a href="pages/teoria-basica.html">Conceptos Básicos</a></li>
+                    <li><a href="#">Espacios de Color</a></li>
+                    <li><a href="pages/filtros-espaciales.html">Filtros Espaciales</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-group">
+                <h3>💻 Prácticas</h3>
+                <ul>
+                    <li><a href="pages/opencv-basico.html">Cargar y Mostrar (OpenCV)</a></li>
+                    <li><a href="#">Manipulación con Numpy</a></li>
+                    <li><a href="#">Histogramas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Instalación y Entorno</h1>
+            <p class="subtitle">Guía paso a paso para configurar tu PC para la materia.</p>
+        </header>
+
+        <section>
+            <h2>1. Requisitos Previos</h2>
+            <p>Antes de empezar a programar, necesitamos instalar las herramientas base de nuestro entorno. Vamos a utilizar <strong>Miniconda</strong> para gestionar nuestros paquetes y entornos virtuales de manera limpia.</p>
+            <a href="https://www.anaconda.com/download/success" target="_blank" class="btn">Descargar Miniconda</a>
+            <p>Además, asegúrate de tener instalado <strong>Visual Studio Code (VSCode)</strong> y buscar en su apartado de extensiones la herramienta de <strong>Jupyter</strong> para poder ejecutar los notebooks sin problemas.</p>
+        </section>
+
+        <section>
+            <h2>2. Configuración en Consola</h2>
+            <p>Una vez que tengas instalado Miniconda, busca la aplicación <strong>Anaconda Prompt</strong> en tu menú de inicio y ábrela. Ahí ejecutaremos los siguientes comandos paso a paso:</p>
+
+            <p>Primero, creamos nuestro entorno virtual llamado "ejemplo":</p>
+            <div class="code-container">
+                <pre><code>conda create --name ejemplo</code></pre>
+            </div>
+
+            <p>Activamos el entorno que acabamos de crear:</p>
+            <div class="code-container">
+                <pre><code>conda activate ejemplo</code></pre>
+            </div>
+
+            <p>Instalamos JupyterLab para trabajar cómodamente:</p>
+            <div class="code-container">
+                <pre><code>conda install jupyterlab</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Instalación de Librerías</h2>
+            <p>Con nuestro entorno activo, vamos a descargar las librerías matemáticas y de procesamiento de imágenes necesarias usando el canal <code>conda-forge</code>. Puedes copiar y pegar todo este comando de una vez:</p>
+            <div class="code-container">
+                <pre><code>conda install -c conda-forge numpy matplotlib pandas opencv</code></pre>
+            </div>
+            <p><em>Nota: Una vez finalizada la descarga, ya puedes abrir VSCode, seleccionar tu entorno "ejemplo" (arriba a la derecha en los notebooks) y empezar a programar.</em></p>
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
