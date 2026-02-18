@@ -4,25 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docs | Procesamiento Digital de Imágenes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+    <button class="menu-toggle">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Menú</span>
+    </button>
+    <div class="overlay"></div>
+
     <aside>
-        <h2>🖼️ Docs PDI</h2>
+        <h2>PDI · Docs</h2>
         
         <nav>
             <div class="nav-group">
-                <h3>🚀 Primeros Pasos</h3>
+                <h3>Primeros Pasos</h3>
                 <ul>
-                    <li><a href="index.html" class="active">Instalación y Entorno</a></li>
+                    <li class="nav-item-parent">
+                        <a href="index.html" class="active parent-link">
+                            <span>Instalación y Entorno</span>
+                            <span class="chevron">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <ul class="nav-submenu active">
+                            <li><a href="#instalacion-conda">Instalación Conda</a></li>
+                            <li><a href="#configuracion">Configuración en Consola</a></li>
+                            <li><a href="#librerias">Instalación de Librerías</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">Introducción a Jupyter</a></li>
                 </ul>
             </div>
 
             <div class="nav-group">
-                <h3>📖 Teoría</h3>
+                <h3>Teoría</h3>
                 <ul>
                     <li><a href="pages/teoria-basica.html">Conceptos Básicos</a></li>
                     <li><a href="#">Espacios de Color</a></li>
@@ -31,7 +53,7 @@
             </div>
 
             <div class="nav-group">
-                <h3>💻 Prácticas</h3>
+                <h3>Prácticas</h3>
                 <ul>
                     <li><a href="pages/opencv-basico.html">Cargar y Mostrar (OpenCV)</a></li>
                     <li><a href="#">Manipulación con Numpy</a></li>
@@ -44,46 +66,101 @@
     <main>
         <header>
             <h1>Instalación y Entorno</h1>
-            <p class="subtitle">Guía paso a paso para configurar tu PC para la materia.</p>
+            <p class="subtitle">Guía paso a paso para configurar tu entorno de desarrollo.</p>
         </header>
 
-        <section>
-            <h2>1. Requisitos Previos</h2>
+        <section id="instalacion-conda">
+            <h2>Instalación de Conda</h2>
             <p>Antes de empezar a programar, necesitamos instalar las herramientas base de nuestro entorno. Vamos a utilizar <strong>Miniconda</strong> para gestionar nuestros paquetes y entornos virtuales de manera limpia.</p>
             <a href="https://www.anaconda.com/download/success" target="_blank" class="btn">Descargar Miniconda</a>
-            <p>Además, asegúrate de tener instalado <strong>Visual Studio Code (VSCode)</strong> y buscar en su apartado de extensiones la herramienta de <strong>Jupyter</strong> para poder ejecutar los notebooks sin problemas.</p>
+            <div class="info-box">
+                <div class="info-label">Nota</div>
+                <div>
+                    <strong>Miniconda vs Anaconda:</strong> Miniconda es una versión ligera de Anaconda que incluye solo lo esencial. Ideal para proyectos específicos sin ocupar espacio innecesario.
+                </div>
+            </div>
+            <p>Además, asegúrate de tener instalado <strong>Visual Studio Code (VSCode)</strong> y la extensión de <strong>Jupyter</strong> para poder ejecutar notebooks de manera integrada en el editor.</p>
         </section>
 
-        <section>
-            <h2>2. Configuración en Consola</h2>
-            <p>Una vez que tengas instalado Miniconda, busca la aplicación <strong>Anaconda Prompt</strong> en tu menú de inicio y ábrela. Ahí ejecutaremos los siguientes comandos paso a paso:</p>
+        <section id="configuracion">
+            <h2>Configuración en Consola</h2>
+            <p>Una vez instalado Miniconda, abre <strong>Anaconda Prompt</strong> desde el menú de inicio. Ejecutaremos los siguientes comandos en secuencia:</p>
 
-            <p>Primero, creamos nuestro entorno virtual llamado "ejemplo":</p>
-            <div class="code-container">
-                <pre><code>conda create --name ejemplo</code></pre>
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Crear Entorno Virtual</h3>
+                    <p>Creamos un entorno virtual aislado llamado "ejemplo":</p>
+                    <div class="code-container">
+                        <pre><code>conda create --name ejemplo</code></pre>
+                    </div>
+                </div>
             </div>
 
-            <p>Activamos el entorno que acabamos de crear:</p>
-            <div class="code-container">
-                <pre><code>conda activate ejemplo</code></pre>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Activar Entorno</h3>
+                    <p>Activamos el entorno recién creado:</p>
+                    <div class="code-container">
+                        <pre><code>conda activate ejemplo</code></pre>
+                    </div>
+                </div>
             </div>
 
-            <p>Instalamos JupyterLab para trabajar cómodamente:</p>
-            <div class="code-container">
-                <pre><code>conda install jupyterlab</code></pre>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Instalar JupyterLab</h3>
+                    <p>Instalamos el entorno de trabajo interactivo:</p>
+                    <div class="code-container">
+                        <pre><code>conda install jupyterlab</code></pre>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>3. Instalación de Librerías</h2>
-            <p>Con nuestro entorno activo, vamos a descargar las librerías matemáticas y de procesamiento de imágenes necesarias usando el canal <code>conda-forge</code>. Puedes copiar y pegar todo este comando de una vez:</p>
+        <section id="librerias">
+            <h2>Instalación de Librerías</h2>
+            <p>Con el entorno activo, instalamos las librerías necesarias para procesamiento de imágenes usando el canal <code>conda-forge</code>:</p>
             <div class="code-container">
                 <pre><code>conda install -c conda-forge numpy matplotlib pandas opencv</code></pre>
             </div>
-            <p><em>Nota: Una vez finalizada la descarga, ya puedes abrir VSCode, seleccionar tu entorno "ejemplo" (arriba a la derecha en los notebooks) y empezar a programar.</em></p>
+            
+            <div class="success-box">
+                <div class="success-label">Verificación</div>
+                <div>
+                    Una vez finalizada la instalación, abre VSCode y selecciona el entorno "ejemplo" en el selector de kernels (esquina superior derecha). El entorno estará listo para ejecutar notebooks.
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h3>Siguientes Pasos</h3>
+                <div class="next-cards">
+                    <a href="#" class="next-card">
+                        <div class="card-icon">JUPYTER</div>
+                        <strong>Introducción a Jupyter</strong>
+                        <p>Aprende a usar notebooks interactivos</p>
+                    </a>
+                    <a href="pages/teoria-basica.html" class="next-card">
+                        <div class="card-icon">TEORÍA</div>
+                        <strong>Conceptos Básicos</strong>
+                        <p>Fundamentos de procesamiento digital</p>
+                    </a>
+                </div>
+            </div>
         </section>
 
     </main>
+
+    <nav class="toc">
+        <h4>Índice</h4>
+        <ul>
+            <li><a href="#instalacion-conda">Instalación de Conda</a></li>
+            <li><a href="#configuracion">Configuración en Consola</a></li>
+            <li><a href="#librerias">Instalación de Librerías</a></li>
+        </ul>
+    </nav>
 
     <script src="js/main.js"></script>
 </body>
